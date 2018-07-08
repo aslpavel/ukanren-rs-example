@@ -1,0 +1,6 @@
+[package]
+name = "uknaren"
+version = "0.1.0"
+authors = ["Pavel Aslanov <asl.pavel@gmail.com>"]
+
+[dependencies]
