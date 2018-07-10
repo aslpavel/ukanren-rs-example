@@ -371,16 +371,14 @@ mod test {
         let x = x.clone();
         let xs = xs.clone();
         fresh! {
-            |x0, x1, x2, x3, x4| conj! {
-                eq(&xs, list!(x0, x1, x2, x3, x4)),
-                disj! {
-                    eq(&x, x0),
-                    eq(&x, x1),
-                    eq(&x, x2),
-                    eq(&x, x3),
-                    eq(&x, x4),
-                }
-            }
+            |head, tail|
+            conj(
+                eq((head, tail), &xs),
+                disj(
+                    eq(&x, head),
+                    member(&x, &tail.into()),
+                ),
+            )
         }
     }
 
